@@ -2,8 +2,6 @@
 #include <hpx/hpx_init.hpp>
 #include <hpx/include/compute.hpp>
 
-#include <utility>
-#include <iostream>
 #include <random>
 #include <chrono>
 #include <fstream>
@@ -39,22 +37,22 @@ double test(ExPolicy policy, std::size_t n)
     allocator_type alloc(numa_domains);
     executor_type executor(numa_domains);
 
-    hpx::execution::adaptive_core_chunk_size acc;
+    hpx::execution::adaptive_static_chunk_size asc;
     hpx::compute::vector<float, allocator_type> nums(n, 0.0, alloc), nums2(n, 0.0, alloc);
     // std::size_t chunk_size = n / 160;
     if constexpr (hpx::is_parallel_execution_policy_v<std::decay_t<ExPolicy>>)
     {
         hpx::generate(hpx::execution::par, nums.begin(), nums.end(), gen_float_t{});
-
     }
     else
     {
         hpx::generate(hpx::execution::seq, nums.begin(), nums.end(), gen_float_t{});
     }
 
+
     auto t1 = std::chrono::high_resolution_clock::now();
     if constexpr (hpx::is_parallel_execution_policy_v<ExPolicy>)
-        hpx::adjacent_difference(policy.on(executor).with(acc), nums.begin(), nums.end(),
+        hpx::adjacent_difference(policy.on(executor).with(asc), nums.begin(), nums.end(),
                                  nums2.begin());
     else
         hpx::adjacent_difference(policy, nums.begin(), nums.end(),
@@ -64,7 +62,6 @@ double test(ExPolicy policy, std::size_t n)
     auto t2 = std::chrono::high_resolution_clock::now();
 
     res += hpx::count(hpx::execution::par, nums2.begin(), nums2.end(), gen_float_t{}());
-
     std::chrono::duration<double> diff = t2 - t1;
     return diff.count();
 }
@@ -85,21 +82,27 @@ int hpx_main()
 {
     std::cout << "Hello HPX! \n";
     std::cout << "Threads : " << hpx::get_os_thread_count() << '\n';
-    std::ofstream fout("result_.csv");
-    fout << "n,seq,par,speed_up\n";
-    for (std::size_t i = 10; i <= 18; i++)
+    std::ofstream fout("result.csv");
+    fout << "n,i,seq,par,speed_up\n";
+    for (std::size_t i = 10; i <= 20; i++)
     {
         std::size_t n = std::pow(2, i);
-        double seq = test3(hpx::execution::seq, 2, n);
-        double par = test3(hpx::execution::par, 2, n);
-        std::cout << "n : " << i << "\t";
-        std::cout << "seq : " << seq << "\t";
-        std::cout << "par : " << par << "\t";
-        std::cout << "spd : " << seq / par << "\n";
-        fout << n << ","
-             << seq << ","
-             << par << ","
-             << seq / par << "\n";
+        for (std::size_t j = 0; j < 3; j++)
+        {
+    
+            double seq = test(hpx::execution::seq, n);
+            double par = test(hpx::execution::par, n);
+            std::cout << "n : " << i << "\t";
+            std::cout << "seq : " << seq << "\t";
+            std::cout << "par : " << par << "\t";
+            std::cout << "spd : " << seq / par << "\n";
+            fout << n << ","
+                << i << ","
+                << seq << ","
+                << par << ","
+                << seq / par << "\n";
+            fout.flush();
+        }
     }
     std::cout << "DUMP : " << res << "\n";
     fout.close();

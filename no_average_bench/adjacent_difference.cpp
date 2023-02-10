@@ -2,8 +2,6 @@
 #include <hpx/hpx_init.hpp>
 #include <hpx/include/compute.hpp>
 
-#include <utility>
-#include <iostream>
 #include <random>
 #include <chrono>
 #include <fstream>
@@ -45,7 +43,6 @@ double test(ExPolicy policy, std::size_t n)
     if constexpr (hpx::is_parallel_execution_policy_v<std::decay_t<ExPolicy>>)
     {
         hpx::generate(hpx::execution::par, nums.begin(), nums.end(), gen_float_t{});
-
     }
     else
     {
@@ -64,7 +61,6 @@ double test(ExPolicy policy, std::size_t n)
     auto t2 = std::chrono::high_resolution_clock::now();
 
     res += hpx::count(hpx::execution::par, nums2.begin(), nums2.end(), gen_float_t{}());
-
     std::chrono::duration<double> diff = t2 - t1;
     return diff.count();
 }
@@ -85,21 +81,41 @@ int hpx_main()
 {
     std::cout << "Hello HPX! \n";
     std::cout << "Threads : " << hpx::get_os_thread_count() << '\n';
-    std::ofstream fout("result_.csv");
-    fout << "n,seq,par,speed_up\n";
+    std::ofstream fout("result.csv");
+    fout << "n,i,seq,par,speed_up\n";
     for (std::size_t i = 10; i <= 18; i++)
     {
         std::size_t n = std::pow(2, i);
-        double seq = test3(hpx::execution::seq, 2, n);
-        double par = test3(hpx::execution::par, 2, n);
-        std::cout << "n : " << i << "\t";
-        std::cout << "seq : " << seq << "\t";
-        std::cout << "par : " << par << "\t";
-        std::cout << "spd : " << seq / par << "\n";
-        fout << n << ","
-             << seq << ","
-             << par << ","
-             << seq / par << "\n";
+        // double vec [k];
+        std::vector<double> vec;
+        for (std::size_t j = 0; j <= 2; j++)
+        {
+    
+            // double vec [j];
+            double seq = test(hpx::execution::seq, n);
+            double par = test(hpx::execution::par, n);
+            std::cout << "n : " << i << "\t";
+            std::cout << "seq : " << seq << "\t";
+            std::cout << "par : " << par << "\t";
+            std::cout << "spd : " << seq / par << "\n\n";
+            vec.push_back(seq/par);
+            fout << n << ","
+                << i << ","
+                << seq << ","
+                << par << ","
+                << seq / par << "\n";
+            fout.flush();
+        //    vec[j] = seq/par;
+            // for (std::size_t b = 0 ; b <=j ; b++)
+            // std::cout << "vector is printed : " <<vec [j] << "\n";
+            // std::cout << "this is the vector : " << vec[j] << "\n\n\n";
+        }
+        // for (std::size_t  x=0 ; x <5; x++)
+        //  std::cout << "this is the vector : " << vec[k] << "\n\n\n";
+        std::cout << "thhis is the vector of speed-up: ";
+        for (auto xy : vec) std::cout << xy << ' ';
+        std::cout  << "\n";
+        std::cout << "this is the maximum speed-up: "<<*std::max_element(vec.begin(), vec.end()) << '\n';
     }
     std::cout << "DUMP : " << res << "\n";
     fout.close();
