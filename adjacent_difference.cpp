@@ -87,7 +87,7 @@ int hpx_main()
     std::cout << "Threads : " << hpx::get_os_thread_count() << '\n';
     std::ofstream fout("result_.csv");
     fout << "n,seq,par,speed_up\n";
-    for (std::size_t i = 10; i <= 18; i++)
+    for (std::size_t i = 10; i <= 22; i++)
     {
         std::size_t n = std::pow(2, i);
         double seq = test3(hpx::execution::seq, 2, n);
