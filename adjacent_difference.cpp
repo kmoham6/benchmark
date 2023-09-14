@@ -28,7 +28,7 @@ void measureAdjacent_differenceAlgorithms() {
   std::vector<int> res1(s);
   auto t = std::chrono::high_resolution_clock::now();
 
-  hpx::adjacent_difference(hpx::execution::par.with(acc), arr.begin(),
+  hpx::adjacent_difference(hpx::execution::par.with(std::ref(acc)), arr.begin(),
                            arr.end(), res1.begin());
 
   auto end = std::chrono::high_resolution_clock::now();
