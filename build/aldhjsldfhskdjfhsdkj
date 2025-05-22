@@ -1,0 +1,1138 @@
+[ 50%] Building CXX object CMakeFiles/hpx_adjacent_difference.dir/adjacent_difference.cpp.o
+In file included from /work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx.hpp:20,
+                 from /work/karame.mp/hpx_June/hpx_buran/performance/adjacent_difference.cpp:1:
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/coforall_loop.hpp:28:9: warning: "HPX_VERSION_FULL" redefined
+   28 | #define HPX_VERSION_FULL 0
+      |         ^~~~~~~~~~~~~~~~
+In file included from /work/karame.mp/hpx_June/hpx_buran/performance/hpx/libs/core/config/include/hpx/config/deprecation.hpp:11,
+                 from /work/karame.mp/hpx_June/hpx_buran/performance/hpx/libs/core/config/include/hpx/config.hpp:22,
+                 from /work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/detail/../generator.hpp:9,
+                 from /work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/detail/iterator_generator.hpp:9,
+                 from /work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx.hpp:9:
+/work/karame.mp/hpx_June/hpx_buran/performance/hpx/build/libs/core/config/include/hpx/config/version.hpp:32:9: note: this is the location of the previous definition
+   32 | #define HPX_VERSION_FULL                                                       \
+      |         ^~~~~~~~~~~~~~~~
+In file included from /work/karame.mp/hpx_June/hpx_buran/performance/adjacent_difference.cpp:8:
+/work/karame.mp/hpx_June/hpx_buran/performance/hpx/build/libs/core/init_runtime_local/include_compatibility/hpx/local/init.hpp:21:2: warning: #warning "The header hpx/local/init.hpp is deprecated, " "please include hpx/init.hpp instead" "To disable this warning, please define HPX_HAVE_DEPRECATION_WARNINGS=0." [-Wcpp]
+   21 | #warning "The header hpx/local/init.hpp is deprecated, " \
+      |  ^~~~~~~
+In file included from /work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx.hpp:24:
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/forall_loop.hpp: In function ‘void chplx::detail::forall(Tuple&, F&&, Args&& ...)’:
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/forall_loop.hpp:40:45: error: ‘acc’ was not declared in this scope; did you mean ‘acct’?
+   40 |           hpx::execution::par.with(std::ref(acc)),
+      |                                             ^~~
+      |                                             acct
+/work/karame.mp/hpx_June/hpx_buran/performance/adjacent_difference.cpp: In function ‘void measureAdjacent_differenceAlgorithms()’:
+/work/karame.mp/hpx_June/hpx_buran/performance/adjacent_difference.cpp:72:20: error: no matching function for call to ‘forall(const hpx::execution::sequenced_policy&, chplx::Range<int, chplx::BoundedRangeType::bounded, false>, measureAdjacent_differenceAlgorithms()::<lambda(auto:210)>)’
+   72 |       chplx::forall(hpx::execution::seq, chplx::Range{1, NX - 1}, [&](auto i) {
+      |       ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   73 |         int y = i;
+      |         ~~~~~~~~~~  
+   74 |         int x = i;
+      |         ~~~~~~~~~~  
+   75 |         auto abc_res =
+      |         ~~~~~~~~~~~~~~
+   76 |             std::pow(
+      |             ~~~~~~~~~
+   77 |                 std::sin(std::tan(std::pow(x, 3)) * std::cos(std::pow(y, 3))),
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   78 |                 5) +
+      |                 ~~~~
+   79 |             std::pow(
+      |             ~~~~~~~~~
+   80 |                 std::cos(std::tan(std::pow(y, 3)) * std::sin(std::pow(x, 3))),
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   81 |                 5) +
+      |                 ~~~~
+   82 |             std::exp(std::sqrt(
+      |             ~~~~~~~~~~~~~~~~~~~
+   83 |                 std::pow(std::sin(std::cos(x)) * std::cos(std::sin(y)), 6) +
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   84 |                 std::pow(std::tan(std::exp(x * y)), 6))) +
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   85 |             std::log(std::abs(std::sin(std::exp(std::pow(x, 2))) *
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   86 |                                   std::cos(std::exp(std::pow(y, 2))) +
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   87 |                               1e-9)) +
+      |                               ~~~~~~~~
+   88 |             std::atan(std::pow(std::sin(std::exp(x + y)), 4)) *
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   89 |                 std::acosh(std::pow(std::cos(std::exp(x * y)), 4)) +
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   90 |             std::pow(std::hypot(std::log(std::abs(x)), std::log(std::abs(y))),
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   91 |                      4) *
+      |                      ~~~~
+   92 |                 std::exp(std::log1p(std::pow(std::tan(x * y), 2)));
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   93 | 
+      |                     
+   94 |         (void)abc_res;
+      |         ~~~~~~~~~~~~~~
+   95 |       });
+      |       ~~            
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/forall_loop.hpp:66:6: note: candidate: ‘template<class ... Ts, class F, class ... Args> void chplx::forall(Tuple<Ts ...>&, F&&, Args&& ...)’
+   66 | void forall(Tuple<Ts...> &t, F &&f, Args &&...args) {
+      |      ^~~~~~
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/forall_loop.hpp:66:6: note:   template argument deduction/substitution failed:
+/work/karame.mp/hpx_June/hpx_buran/performance/adjacent_difference.cpp:72:20: note:   types ‘chplx::Tuple<Ts ...>’ and ‘const hpx::execution::sequenced_policy’ {aka ‘const hpx::execution::detail::sequenced_policy_shim<hpx::execution::sequenced_executor, hpx::execution::experimental::default_parameters>’} have incompatible cv-qualifiers
+   72 |       chplx::forall(hpx::execution::seq, chplx::Range{1, NX - 1}, [&](auto i) {
+      |       ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   73 |         int y = i;
+      |         ~~~~~~~~~~  
+   74 |         int x = i;
+      |         ~~~~~~~~~~  
+   75 |         auto abc_res =
+      |         ~~~~~~~~~~~~~~
+   76 |             std::pow(
+      |             ~~~~~~~~~
+   77 |                 std::sin(std::tan(std::pow(x, 3)) * std::cos(std::pow(y, 3))),
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   78 |                 5) +
+      |                 ~~~~
+   79 |             std::pow(
+      |             ~~~~~~~~~
+   80 |                 std::cos(std::tan(std::pow(y, 3)) * std::sin(std::pow(x, 3))),
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   81 |                 5) +
+      |                 ~~~~
+   82 |             std::exp(std::sqrt(
+      |             ~~~~~~~~~~~~~~~~~~~
+   83 |                 std::pow(std::sin(std::cos(x)) * std::cos(std::sin(y)), 6) +
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   84 |                 std::pow(std::tan(std::exp(x * y)), 6))) +
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   85 |             std::log(std::abs(std::sin(std::exp(std::pow(x, 2))) *
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   86 |                                   std::cos(std::exp(std::pow(y, 2))) +
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   87 |                               1e-9)) +
+      |                               ~~~~~~~~
+   88 |             std::atan(std::pow(std::sin(std::exp(x + y)), 4)) *
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   89 |                 std::acosh(std::pow(std::cos(std::exp(x * y)), 4)) +
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   90 |             std::pow(std::hypot(std::log(std::abs(x)), std::log(std::abs(y))),
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   91 |                      4) *
+      |                      ~~~~
+   92 |                 std::exp(std::log1p(std::pow(std::tan(x * y), 2)));
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   93 | 
+      |                     
+   94 |         (void)abc_res;
+      |         ~~~~~~~~~~~~~~
+   95 |       });
+      |       ~~            
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/forall_loop.hpp:72:6: note: candidate: ‘template<class ... Ts, class F, class ... Args> void chplx::forall(const Tuple<Ts ...>&, F&&, Args&& ...)’
+   72 | void forall(Tuple<Ts...> const &t, F &&f, Args &&...args) {
+      |      ^~~~~~
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/forall_loop.hpp:72:6: note:   template argument deduction/substitution failed:
+/work/karame.mp/hpx_June/hpx_buran/performance/adjacent_difference.cpp:72:20: note:   ‘const hpx::execution::sequenced_policy’ {aka ‘const hpx::execution::detail::sequenced_policy_shim<hpx::execution::sequenced_executor, hpx::execution::experimental::default_parameters>’} is not derived from ‘const chplx::Tuple<Ts ...>’
+   72 |       chplx::forall(hpx::execution::seq, chplx::Range{1, NX - 1}, [&](auto i) {
+      |       ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   73 |         int y = i;
+      |         ~~~~~~~~~~  
+   74 |         int x = i;
+      |         ~~~~~~~~~~  
+   75 |         auto abc_res =
+      |         ~~~~~~~~~~~~~~
+   76 |             std::pow(
+      |             ~~~~~~~~~
+   77 |                 std::sin(std::tan(std::pow(x, 3)) * std::cos(std::pow(y, 3))),
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   78 |                 5) +
+      |                 ~~~~
+   79 |             std::pow(
+      |             ~~~~~~~~~
+   80 |                 std::cos(std::tan(std::pow(y, 3)) * std::sin(std::pow(x, 3))),
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   81 |                 5) +
+      |                 ~~~~
+   82 |             std::exp(std::sqrt(
+      |             ~~~~~~~~~~~~~~~~~~~
+   83 |                 std::pow(std::sin(std::cos(x)) * std::cos(std::sin(y)), 6) +
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   84 |                 std::pow(std::tan(std::exp(x * y)), 6))) +
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   85 |             std::log(std::abs(std::sin(std::exp(std::pow(x, 2))) *
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   86 |                                   std::cos(std::exp(std::pow(y, 2))) +
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   87 |                               1e-9)) +
+      |                               ~~~~~~~~
+   88 |             std::atan(std::pow(std::sin(std::exp(x + y)), 4)) *
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   89 |                 std::acosh(std::pow(std::cos(std::exp(x * y)), 4)) +
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   90 |             std::pow(std::hypot(std::log(std::abs(x)), std::log(std::abs(y))),
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   91 |                      4) *
+      |                      ~~~~
+   92 |                 std::exp(std::log1p(std::pow(std::tan(x * y), 2)));
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   93 | 
+      |                     
+   94 |         (void)abc_res;
+      |         ~~~~~~~~~~~~~~
+   95 |       });
+      |       ~~            
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/forall_loop.hpp:81:6: note: candidate: ‘template<class T, chplx::BoundedRangeType BoundedType, bool Stridable, class F, class ... Args> void chplx::forall(const Range<T, BoundedType, Stridable>&, F&&, Args&& ...)’
+   81 | void forall(Range<T, BoundedType, Stridable> const &r, F &&f, Args &&...args) {
+      |      ^~~~~~
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/forall_loop.hpp:81:6: note:   template argument deduction/substitution failed:
+/work/karame.mp/hpx_June/hpx_buran/performance/adjacent_difference.cpp:72:20: note:   ‘const hpx::execution::sequenced_policy’ {aka ‘const hpx::execution::detail::sequenced_policy_shim<hpx::execution::sequenced_executor, hpx::execution::experimental::default_parameters>’} is not derived from ‘const chplx::Range<T, BoundedType, Stridable>’
+   72 |       chplx::forall(hpx::execution::seq, chplx::Range{1, NX - 1}, [&](auto i) {
+      |       ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   73 |         int y = i;
+      |         ~~~~~~~~~~  
+   74 |         int x = i;
+      |         ~~~~~~~~~~  
+   75 |         auto abc_res =
+      |         ~~~~~~~~~~~~~~
+   76 |             std::pow(
+      |             ~~~~~~~~~
+   77 |                 std::sin(std::tan(std::pow(x, 3)) * std::cos(std::pow(y, 3))),
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   78 |                 5) +
+      |                 ~~~~
+   79 |             std::pow(
+      |             ~~~~~~~~~
+   80 |                 std::cos(std::tan(std::pow(y, 3)) * std::sin(std::pow(x, 3))),
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   81 |                 5) +
+      |                 ~~~~
+   82 |             std::exp(std::sqrt(
+      |             ~~~~~~~~~~~~~~~~~~~
+   83 |                 std::pow(std::sin(std::cos(x)) * std::cos(std::sin(y)), 6) +
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   84 |                 std::pow(std::tan(std::exp(x * y)), 6))) +
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   85 |             std::log(std::abs(std::sin(std::exp(std::pow(x, 2))) *
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   86 |                                   std::cos(std::exp(std::pow(y, 2))) +
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   87 |                               1e-9)) +
+      |                               ~~~~~~~~
+   88 |             std::atan(std::pow(std::sin(std::exp(x + y)), 4)) *
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   89 |                 std::acosh(std::pow(std::cos(std::exp(x * y)), 4)) +
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   90 |             std::pow(std::hypot(std::log(std::abs(x)), std::log(std::abs(y))),
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   91 |                      4) *
+      |                      ~~~~
+   92 |                 std::exp(std::log1p(std::pow(std::tan(x * y), 2)));
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   93 | 
+      |                     
+   94 |         (void)abc_res;
+      |         ~~~~~~~~~~~~~~
+   95 |       });
+      |       ~~            
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/forall_loop.hpp:93:6: note: candidate: ‘template<class T, class F, class ... Args> void chplx::forall(const Range<T, chplx::BoundedRangeType::bounded, false>&, F&&, Args&& ...)’
+   93 | void forall(Range<T, BoundedRangeType::bounded, false> const &r, F &&f,
+      |      ^~~~~~
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/forall_loop.hpp:93:6: note:   template argument deduction/substitution failed:
+/work/karame.mp/hpx_June/hpx_buran/performance/adjacent_difference.cpp:72:20: note:   ‘const hpx::execution::sequenced_policy’ {aka ‘const hpx::execution::detail::sequenced_policy_shim<hpx::execution::sequenced_executor, hpx::execution::experimental::default_parameters>’} is not derived from ‘const chplx::Range<T, chplx::BoundedRangeType::bounded, false>’
+   72 |       chplx::forall(hpx::execution::seq, chplx::Range{1, NX - 1}, [&](auto i) {
+      |       ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   73 |         int y = i;
+      |         ~~~~~~~~~~  
+   74 |         int x = i;
+      |         ~~~~~~~~~~  
+   75 |         auto abc_res =
+      |         ~~~~~~~~~~~~~~
+   76 |             std::pow(
+      |             ~~~~~~~~~
+   77 |                 std::sin(std::tan(std::pow(x, 3)) * std::cos(std::pow(y, 3))),
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   78 |                 5) +
+      |                 ~~~~
+   79 |             std::pow(
+      |             ~~~~~~~~~
+   80 |                 std::cos(std::tan(std::pow(y, 3)) * std::sin(std::pow(x, 3))),
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   81 |                 5) +
+      |                 ~~~~
+   82 |             std::exp(std::sqrt(
+      |             ~~~~~~~~~~~~~~~~~~~
+   83 |                 std::pow(std::sin(std::cos(x)) * std::cos(std::sin(y)), 6) +
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   84 |                 std::pow(std::tan(std::exp(x * y)), 6))) +
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   85 |             std::log(std::abs(std::sin(std::exp(std::pow(x, 2))) *
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   86 |                                   std::cos(std::exp(std::pow(y, 2))) +
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   87 |                               1e-9)) +
+      |                               ~~~~~~~~
+   88 |             std::atan(std::pow(std::sin(std::exp(x + y)), 4)) *
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   89 |                 std::acosh(std::pow(std::cos(std::exp(x * y)), 4)) +
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   90 |             std::pow(std::hypot(std::log(std::abs(x)), std::log(std::abs(y))),
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   91 |                      4) *
+      |                      ~~~~
+   92 |                 std::exp(std::log1p(std::pow(std::tan(x * y), 2)));
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   93 | 
+      |                     
+   94 |         (void)abc_res;
+      |         ~~~~~~~~~~~~~~
+   95 |       });
+      |       ~~            
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/forall_loop.hpp:108:6: note: candidate: ‘template<int N, class T, bool Stridable, class F, class ... Args> void chplx::forall(const Domain<N, T, Stridable>&, F&&, Args&& ...)’
+  108 | void forall(Domain<N, T, Stridable> const &d, F &&f, Args &&...args) {
+      |      ^~~~~~
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/forall_loop.hpp:108:6: note:   template argument deduction/substitution failed:
+/work/karame.mp/hpx_June/hpx_buran/performance/adjacent_difference.cpp:72:20: note:   ‘const hpx::execution::sequenced_policy’ {aka ‘const hpx::execution::detail::sequenced_policy_shim<hpx::execution::sequenced_executor, hpx::execution::experimental::default_parameters>’} is not derived from ‘const chplx::Domain<N, T, Stridable>’
+   72 |       chplx::forall(hpx::execution::seq, chplx::Range{1, NX - 1}, [&](auto i) {
+      |       ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   73 |         int y = i;
+      |         ~~~~~~~~~~  
+   74 |         int x = i;
+      |         ~~~~~~~~~~  
+   75 |         auto abc_res =
+      |         ~~~~~~~~~~~~~~
+   76 |             std::pow(
+      |             ~~~~~~~~~
+   77 |                 std::sin(std::tan(std::pow(x, 3)) * std::cos(std::pow(y, 3))),
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   78 |                 5) +
+      |                 ~~~~
+   79 |             std::pow(
+      |             ~~~~~~~~~
+   80 |                 std::cos(std::tan(std::pow(y, 3)) * std::sin(std::pow(x, 3))),
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   81 |                 5) +
+      |                 ~~~~
+   82 |             std::exp(std::sqrt(
+      |             ~~~~~~~~~~~~~~~~~~~
+   83 |                 std::pow(std::sin(std::cos(x)) * std::cos(std::sin(y)), 6) +
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   84 |                 std::pow(std::tan(std::exp(x * y)), 6))) +
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   85 |             std::log(std::abs(std::sin(std::exp(std::pow(x, 2))) *
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   86 |                                   std::cos(std::exp(std::pow(y, 2))) +
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   87 |                               1e-9)) +
+      |                               ~~~~~~~~
+   88 |             std::atan(std::pow(std::sin(std::exp(x + y)), 4)) *
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   89 |                 std::acosh(std::pow(std::cos(std::exp(x * y)), 4)) +
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   90 |             std::pow(std::hypot(std::log(std::abs(x)), std::log(std::abs(y))),
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   91 |                      4) *
+      |                      ~~~~
+   92 |                 std::exp(std::log1p(std::pow(std::tan(x * y), 2)));
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   93 | 
+      |                     
+   94 |         (void)abc_res;
+      |         ~~~~~~~~~~~~~~
+   95 |       });
+      |       ~~            
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/forall_loop.hpp:120:6: note: candidate: ‘template<class Idx, class F, class ... Args> void chplx::forall(const Domain<1, Idx>&, F&&, Args&& ...)’
+  120 | void forall(Domain<1, Idx, false> const &d, F &&f, Args &&...args) {
+      |      ^~~~~~
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/forall_loop.hpp:120:6: note:   template argument deduction/substitution failed:
+/work/karame.mp/hpx_June/hpx_buran/performance/adjacent_difference.cpp:72:20: note:   ‘const hpx::execution::sequenced_policy’ {aka ‘const hpx::execution::detail::sequenced_policy_shim<hpx::execution::sequenced_executor, hpx::execution::experimental::default_parameters>’} is not derived from ‘const chplx::Domain<1, Idx>’
+   72 |       chplx::forall(hpx::execution::seq, chplx::Range{1, NX - 1}, [&](auto i) {
+      |       ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   73 |         int y = i;
+      |         ~~~~~~~~~~  
+   74 |         int x = i;
+      |         ~~~~~~~~~~  
+   75 |         auto abc_res =
+      |         ~~~~~~~~~~~~~~
+   76 |             std::pow(
+      |             ~~~~~~~~~
+   77 |                 std::sin(std::tan(std::pow(x, 3)) * std::cos(std::pow(y, 3))),
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   78 |                 5) +
+      |                 ~~~~
+   79 |             std::pow(
+      |             ~~~~~~~~~
+   80 |                 std::cos(std::tan(std::pow(y, 3)) * std::sin(std::pow(x, 3))),
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   81 |                 5) +
+      |                 ~~~~
+   82 |             std::exp(std::sqrt(
+      |             ~~~~~~~~~~~~~~~~~~~
+   83 |                 std::pow(std::sin(std::cos(x)) * std::cos(std::sin(y)), 6) +
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   84 |                 std::pow(std::tan(std::exp(x * y)), 6))) +
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   85 |             std::log(std::abs(std::sin(std::exp(std::pow(x, 2))) *
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   86 |                                   std::cos(std::exp(std::pow(y, 2))) +
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   87 |                               1e-9)) +
+      |                               ~~~~~~~~
+   88 |             std::atan(std::pow(std::sin(std::exp(x + y)), 4)) *
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   89 |                 std::acosh(std::pow(std::cos(std::exp(x * y)), 4)) +
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   90 |             std::pow(std::hypot(std::log(std::abs(x)), std::log(std::abs(y))),
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   91 |                      4) *
+      |                      ~~~~
+   92 |                 std::exp(std::log1p(std::pow(std::tan(x * y), 2)));
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   93 | 
+      |                     
+   94 |         (void)abc_res;
+      |         ~~~~~~~~~~~~~~
+   95 |       });
+      |       ~~            
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/forall_loop.hpp:134:6: note: candidate: ‘template<class T, class F, class ... Args> void chplx::forall(const AssocDomain<T>&, F&&, Args&& ...)’
+  134 | void forall(AssocDomain<T> const &d, F &&f, Args &&...args) {
+      |      ^~~~~~
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/forall_loop.hpp:134:6: note:   template argument deduction/substitution failed:
+/work/karame.mp/hpx_June/hpx_buran/performance/adjacent_difference.cpp:72:20: note:   ‘const hpx::execution::sequenced_policy’ {aka ‘const hpx::execution::detail::sequenced_policy_shim<hpx::execution::sequenced_executor, hpx::execution::experimental::default_parameters>’} is not derived from ‘const chplx::AssocDomain<T>’
+   72 |       chplx::forall(hpx::execution::seq, chplx::Range{1, NX - 1}, [&](auto i) {
+      |       ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   73 |         int y = i;
+      |         ~~~~~~~~~~  
+   74 |         int x = i;
+      |         ~~~~~~~~~~  
+   75 |         auto abc_res =
+      |         ~~~~~~~~~~~~~~
+   76 |             std::pow(
+      |             ~~~~~~~~~
+   77 |                 std::sin(std::tan(std::pow(x, 3)) * std::cos(std::pow(y, 3))),
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   78 |                 5) +
+      |                 ~~~~
+   79 |             std::pow(
+      |             ~~~~~~~~~
+   80 |                 std::cos(std::tan(std::pow(y, 3)) * std::sin(std::pow(x, 3))),
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   81 |                 5) +
+      |                 ~~~~
+   82 |             std::exp(std::sqrt(
+      |             ~~~~~~~~~~~~~~~~~~~
+   83 |                 std::pow(std::sin(std::cos(x)) * std::cos(std::sin(y)), 6) +
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   84 |                 std::pow(std::tan(std::exp(x * y)), 6))) +
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   85 |             std::log(std::abs(std::sin(std::exp(std::pow(x, 2))) *
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   86 |                                   std::cos(std::exp(std::pow(y, 2))) +
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   87 |                               1e-9)) +
+      |                               ~~~~~~~~
+   88 |             std::atan(std::pow(std::sin(std::exp(x + y)), 4)) *
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   89 |                 std::acosh(std::pow(std::cos(std::exp(x * y)), 4)) +
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   90 |             std::pow(std::hypot(std::log(std::abs(x)), std::log(std::abs(y))),
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   91 |                      4) *
+      |                      ~~~~
+   92 |                 std::exp(std::log1p(std::pow(std::tan(x * y), 2)));
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   93 | 
+      |                     
+   94 |         (void)abc_res;
+      |         ~~~~~~~~~~~~~~
+   95 |       });
+      |       ~~            
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/forall_loop.hpp:148:6: note: candidate: ‘template<class ... Rs, class F, class ... Args> void chplx::forall(const detail::ZipRange<Rs ...>&, F&&, Args&& ...)’
+  148 | void forall(detail::ZipRange<Rs...> const &zr, F &&f, Args &&...args) {
+      |      ^~~~~~
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/forall_loop.hpp:148:6: note:   template argument deduction/substitution failed:
+/work/karame.mp/hpx_June/hpx_buran/performance/adjacent_difference.cpp:72:20: note:   ‘const hpx::execution::sequenced_policy’ {aka ‘const hpx::execution::detail::sequenced_policy_shim<hpx::execution::sequenced_executor, hpx::execution::experimental::default_parameters>’} is not derived from ‘const chplx::detail::ZipRange<Rs ...>’
+   72 |       chplx::forall(hpx::execution::seq, chplx::Range{1, NX - 1}, [&](auto i) {
+      |       ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   73 |         int y = i;
+      |         ~~~~~~~~~~  
+   74 |         int x = i;
+      |         ~~~~~~~~~~  
+   75 |         auto abc_res =
+      |         ~~~~~~~~~~~~~~
+   76 |             std::pow(
+      |             ~~~~~~~~~
+   77 |                 std::sin(std::tan(std::pow(x, 3)) * std::cos(std::pow(y, 3))),
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   78 |                 5) +
+      |                 ~~~~
+   79 |             std::pow(
+      |             ~~~~~~~~~
+   80 |                 std::cos(std::tan(std::pow(y, 3)) * std::sin(std::pow(x, 3))),
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   81 |                 5) +
+      |                 ~~~~
+   82 |             std::exp(std::sqrt(
+      |             ~~~~~~~~~~~~~~~~~~~
+   83 |                 std::pow(std::sin(std::cos(x)) * std::cos(std::sin(y)), 6) +
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   84 |                 std::pow(std::tan(std::exp(x * y)), 6))) +
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   85 |             std::log(std::abs(std::sin(std::exp(std::pow(x, 2))) *
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   86 |                                   std::cos(std::exp(std::pow(y, 2))) +
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   87 |                               1e-9)) +
+      |                               ~~~~~~~~
+   88 |             std::atan(std::pow(std::sin(std::exp(x + y)), 4)) *
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   89 |                 std::acosh(std::pow(std::cos(std::exp(x * y)), 4)) +
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   90 |             std::pow(std::hypot(std::log(std::abs(x)), std::log(std::abs(y))),
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   91 |                      4) *
+      |                      ~~~~
+   92 |                 std::exp(std::log1p(std::pow(std::tan(x * y), 2)));
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   93 | 
+      |                     
+   94 |         (void)abc_res;
+      |         ~~~~~~~~~~~~~~
+   95 |       });
+      |       ~~            
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/forall_loop.hpp:162:6: note: candidate: ‘template<class T, class Domain, class F, class ... Args> void chplx::forall(const Array<T, Domain>&, F&&, Args&& ...)’
+  162 | void forall(Array<T, Domain> const &a, F &&f, Args &&...args) {
+      |      ^~~~~~
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/forall_loop.hpp:162:6: note:   template argument deduction/substitution failed:
+/work/karame.mp/hpx_June/hpx_buran/performance/adjacent_difference.cpp:72:20: note:   ‘const hpx::execution::sequenced_policy’ {aka ‘const hpx::execution::detail::sequenced_policy_shim<hpx::execution::sequenced_executor, hpx::execution::experimental::default_parameters>’} is not derived from ‘const chplx::Array<T, Domain>’
+   72 |       chplx::forall(hpx::execution::seq, chplx::Range{1, NX - 1}, [&](auto i) {
+      |       ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   73 |         int y = i;
+      |         ~~~~~~~~~~  
+   74 |         int x = i;
+      |         ~~~~~~~~~~  
+   75 |         auto abc_res =
+      |         ~~~~~~~~~~~~~~
+   76 |             std::pow(
+      |             ~~~~~~~~~
+   77 |                 std::sin(std::tan(std::pow(x, 3)) * std::cos(std::pow(y, 3))),
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   78 |                 5) +
+      |                 ~~~~
+   79 |             std::pow(
+      |             ~~~~~~~~~
+   80 |                 std::cos(std::tan(std::pow(y, 3)) * std::sin(std::pow(x, 3))),
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   81 |                 5) +
+      |                 ~~~~
+   82 |             std::exp(std::sqrt(
+      |             ~~~~~~~~~~~~~~~~~~~
+   83 |                 std::pow(std::sin(std::cos(x)) * std::cos(std::sin(y)), 6) +
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   84 |                 std::pow(std::tan(std::exp(x * y)), 6))) +
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   85 |             std::log(std::abs(std::sin(std::exp(std::pow(x, 2))) *
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   86 |                                   std::cos(std::exp(std::pow(y, 2))) +
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   87 |                               1e-9)) +
+      |                               ~~~~~~~~
+   88 |             std::atan(std::pow(std::sin(std::exp(x + y)), 4)) *
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   89 |                 std::acosh(std::pow(std::cos(std::exp(x * y)), 4)) +
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   90 |             std::pow(std::hypot(std::log(std::abs(x)), std::log(std::abs(y))),
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   91 |                      4) *
+      |                      ~~~~
+   92 |                 std::exp(std::log1p(std::pow(std::tan(x * y), 2)));
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   93 | 
+      |                     
+   94 |         (void)abc_res;
+      |         ~~~~~~~~~~~~~~
+   95 |       });
+      |       ~~            
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/forall_loop.hpp:176:6: note: candidate: ‘template<class T, class F, class ... Args> void chplx::forall(const Array<T, Domain<1> >&, F&&, Args&& ...)’
+  176 | void forall(Array<T, Domain<1>> const &a, F &&f, Args &&...args) {
+      |      ^~~~~~
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/forall_loop.hpp:176:6: note:   template argument deduction/substitution failed:
+/work/karame.mp/hpx_June/hpx_buran/performance/adjacent_difference.cpp:72:20: note:   ‘const hpx::execution::sequenced_policy’ {aka ‘const hpx::execution::detail::sequenced_policy_shim<hpx::execution::sequenced_executor, hpx::execution::experimental::default_parameters>’} is not derived from ‘const chplx::Array<T, chplx::Domain<1> >’
+   72 |       chplx::forall(hpx::execution::seq, chplx::Range{1, NX - 1}, [&](auto i) {
+      |       ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   73 |         int y = i;
+      |         ~~~~~~~~~~  
+   74 |         int x = i;
+      |         ~~~~~~~~~~  
+   75 |         auto abc_res =
+      |         ~~~~~~~~~~~~~~
+   76 |             std::pow(
+      |             ~~~~~~~~~
+   77 |                 std::sin(std::tan(std::pow(x, 3)) * std::cos(std::pow(y, 3))),
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   78 |                 5) +
+      |                 ~~~~
+   79 |             std::pow(
+      |             ~~~~~~~~~
+   80 |                 std::cos(std::tan(std::pow(y, 3)) * std::sin(std::pow(x, 3))),
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   81 |                 5) +
+      |                 ~~~~
+   82 |             std::exp(std::sqrt(
+      |             ~~~~~~~~~~~~~~~~~~~
+   83 |                 std::pow(std::sin(std::cos(x)) * std::cos(std::sin(y)), 6) +
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   84 |                 std::pow(std::tan(std::exp(x * y)), 6))) +
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   85 |             std::log(std::abs(std::sin(std::exp(std::pow(x, 2))) *
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   86 |                                   std::cos(std::exp(std::pow(y, 2))) +
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   87 |                               1e-9)) +
+      |                               ~~~~~~~~
+   88 |             std::atan(std::pow(std::sin(std::exp(x + y)), 4)) *
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   89 |                 std::acosh(std::pow(std::cos(std::exp(x * y)), 4)) +
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   90 |             std::pow(std::hypot(std::log(std::abs(x)), std::log(std::abs(y))),
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   91 |                      4) *
+      |                      ~~~~
+   92 |                 std::exp(std::log1p(std::pow(std::tan(x * y), 2)));
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   93 | 
+      |                     
+   94 |         (void)abc_res;
+      |         ~~~~~~~~~~~~~~
+   95 |       });
+      |       ~~            
+/work/karame.mp/hpx_June/hpx_buran/performance/adjacent_difference.cpp:149:20: error: no matching function for call to ‘forall(hpx::execution::detail::parallel_policy_shim<hpx::execution::parallel_policy_executor<hpx::launch>, std::reference_wrapper<hpx::execution::experimental::adaptive_core_chunk_size> >, chplx::Range<int, chplx::BoundedRangeType::bounded, false>, measureAdjacent_differenceAlgorithms()::<lambda(auto:211)>)’
+  149 |       chplx::forall(
+      |       ~~~~~~~~~~~~~^
+  150 |           hpx::execution::par.with(std::ref(acc)), chplx::Range{1, NX - 1},
+      |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  151 |           [&](auto i) {
+      |           ~~~~~~~~~~~~~
+  152 |             int y = i;
+      |             ~~~~~~~~~~
+  153 |             int x = i;
+      |             ~~~~~~~~~~
+  154 |             auto abc_res =
+      |             ~~~~~~~~~~~~~~
+  155 |                 std::pow(std::sin(std::tan(std::pow(x, 3)) *
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  156 |                                   std::cos(std::pow(y, 3))),
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~
+  157 |                          5) +
+      |                          ~~~~
+  158 |                 std::pow(std::cos(std::tan(std::pow(y, 3)) *
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  159 |                                   std::sin(std::pow(x, 3))),
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~
+  160 |                          5) +
+      |                          ~~~~
+  161 |                 std::exp(std::sqrt(
+      |                 ~~~~~~~~~~~~~~~~~~~
+  162 |                     std::pow(std::sin(std::cos(x)) * std::cos(std::sin(y)), 6) +
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  163 |                     std::pow(std::tan(std::exp(x * y)), 6))) +
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  164 |                 std::log(std::abs(std::sin(std::exp(std::pow(x, 2))) *
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  165 |                                       std::cos(std::exp(std::pow(y, 2))) +
+      |                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  166 |                                   1e-9)) +
+      |                                   ~~~~~~~~
+  167 |                 std::atan(std::pow(std::sin(std::exp(x + y)), 4)) *
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  168 |                     std::acosh(std::pow(std::cos(std::exp(x * y)), 4)) +
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  169 |                 std::pow(
+      |                 ~~~~~~~~~
+  170 |                     std::hypot(std::log(std::abs(x)), std::log(std::abs(y))),
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  171 |                     4) *
+      |                     ~~~~
+  172 |                     std::exp(std::log1p(std::pow(std::tan(x * y), 2)));
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  173 | 
+      |                     
+  174 |             (void)abc_res;
+      |             ~~~~~~~~~~~~~~
+  175 |           });
+      |           ~~        
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/forall_loop.hpp:66:6: note: candidate: ‘template<class ... Ts, class F, class ... Args> void chplx::forall(Tuple<Ts ...>&, F&&, Args&& ...)’
+   66 | void forall(Tuple<Ts...> &t, F &&f, Args &&...args) {
+      |      ^~~~~~
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/forall_loop.hpp:66:6: note:   template argument deduction/substitution failed:
+/work/karame.mp/hpx_June/hpx_buran/performance/adjacent_difference.cpp:149:20: note:   ‘hpx::execution::detail::parallel_policy_shim<hpx::execution::parallel_policy_executor<hpx::launch>, std::reference_wrapper<hpx::execution::experimental::adaptive_core_chunk_size> >’ is not derived from ‘chplx::Tuple<Ts ...>’
+  149 |       chplx::forall(
+      |       ~~~~~~~~~~~~~^
+  150 |           hpx::execution::par.with(std::ref(acc)), chplx::Range{1, NX - 1},
+      |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  151 |           [&](auto i) {
+      |           ~~~~~~~~~~~~~
+  152 |             int y = i;
+      |             ~~~~~~~~~~
+  153 |             int x = i;
+      |             ~~~~~~~~~~
+  154 |             auto abc_res =
+      |             ~~~~~~~~~~~~~~
+  155 |                 std::pow(std::sin(std::tan(std::pow(x, 3)) *
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  156 |                                   std::cos(std::pow(y, 3))),
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~
+  157 |                          5) +
+      |                          ~~~~
+  158 |                 std::pow(std::cos(std::tan(std::pow(y, 3)) *
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  159 |                                   std::sin(std::pow(x, 3))),
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~
+  160 |                          5) +
+      |                          ~~~~
+  161 |                 std::exp(std::sqrt(
+      |                 ~~~~~~~~~~~~~~~~~~~
+  162 |                     std::pow(std::sin(std::cos(x)) * std::cos(std::sin(y)), 6) +
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  163 |                     std::pow(std::tan(std::exp(x * y)), 6))) +
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  164 |                 std::log(std::abs(std::sin(std::exp(std::pow(x, 2))) *
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  165 |                                       std::cos(std::exp(std::pow(y, 2))) +
+      |                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  166 |                                   1e-9)) +
+      |                                   ~~~~~~~~
+  167 |                 std::atan(std::pow(std::sin(std::exp(x + y)), 4)) *
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  168 |                     std::acosh(std::pow(std::cos(std::exp(x * y)), 4)) +
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  169 |                 std::pow(
+      |                 ~~~~~~~~~
+  170 |                     std::hypot(std::log(std::abs(x)), std::log(std::abs(y))),
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  171 |                     4) *
+      |                     ~~~~
+  172 |                     std::exp(std::log1p(std::pow(std::tan(x * y), 2)));
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  173 | 
+      |                     
+  174 |             (void)abc_res;
+      |             ~~~~~~~~~~~~~~
+  175 |           });
+      |           ~~        
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/forall_loop.hpp:72:6: note: candidate: ‘template<class ... Ts, class F, class ... Args> void chplx::forall(const Tuple<Ts ...>&, F&&, Args&& ...)’
+   72 | void forall(Tuple<Ts...> const &t, F &&f, Args &&...args) {
+      |      ^~~~~~
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/forall_loop.hpp:72:6: note:   template argument deduction/substitution failed:
+/work/karame.mp/hpx_June/hpx_buran/performance/adjacent_difference.cpp:149:20: note:   ‘hpx::execution::detail::parallel_policy_shim<hpx::execution::parallel_policy_executor<hpx::launch>, std::reference_wrapper<hpx::execution::experimental::adaptive_core_chunk_size> >’ is not derived from ‘const chplx::Tuple<Ts ...>’
+  149 |       chplx::forall(
+      |       ~~~~~~~~~~~~~^
+  150 |           hpx::execution::par.with(std::ref(acc)), chplx::Range{1, NX - 1},
+      |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  151 |           [&](auto i) {
+      |           ~~~~~~~~~~~~~
+  152 |             int y = i;
+      |             ~~~~~~~~~~
+  153 |             int x = i;
+      |             ~~~~~~~~~~
+  154 |             auto abc_res =
+      |             ~~~~~~~~~~~~~~
+  155 |                 std::pow(std::sin(std::tan(std::pow(x, 3)) *
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  156 |                                   std::cos(std::pow(y, 3))),
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~
+  157 |                          5) +
+      |                          ~~~~
+  158 |                 std::pow(std::cos(std::tan(std::pow(y, 3)) *
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  159 |                                   std::sin(std::pow(x, 3))),
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~
+  160 |                          5) +
+      |                          ~~~~
+  161 |                 std::exp(std::sqrt(
+      |                 ~~~~~~~~~~~~~~~~~~~
+  162 |                     std::pow(std::sin(std::cos(x)) * std::cos(std::sin(y)), 6) +
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  163 |                     std::pow(std::tan(std::exp(x * y)), 6))) +
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  164 |                 std::log(std::abs(std::sin(std::exp(std::pow(x, 2))) *
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  165 |                                       std::cos(std::exp(std::pow(y, 2))) +
+      |                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  166 |                                   1e-9)) +
+      |                                   ~~~~~~~~
+  167 |                 std::atan(std::pow(std::sin(std::exp(x + y)), 4)) *
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  168 |                     std::acosh(std::pow(std::cos(std::exp(x * y)), 4)) +
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  169 |                 std::pow(
+      |                 ~~~~~~~~~
+  170 |                     std::hypot(std::log(std::abs(x)), std::log(std::abs(y))),
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  171 |                     4) *
+      |                     ~~~~
+  172 |                     std::exp(std::log1p(std::pow(std::tan(x * y), 2)));
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  173 | 
+      |                     
+  174 |             (void)abc_res;
+      |             ~~~~~~~~~~~~~~
+  175 |           });
+      |           ~~        
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/forall_loop.hpp:81:6: note: candidate: ‘template<class T, chplx::BoundedRangeType BoundedType, bool Stridable, class F, class ... Args> void chplx::forall(const Range<T, BoundedType, Stridable>&, F&&, Args&& ...)’
+   81 | void forall(Range<T, BoundedType, Stridable> const &r, F &&f, Args &&...args) {
+      |      ^~~~~~
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/forall_loop.hpp:81:6: note:   template argument deduction/substitution failed:
+/work/karame.mp/hpx_June/hpx_buran/performance/adjacent_difference.cpp:149:20: note:   ‘hpx::execution::detail::parallel_policy_shim<hpx::execution::parallel_policy_executor<hpx::launch>, std::reference_wrapper<hpx::execution::experimental::adaptive_core_chunk_size> >’ is not derived from ‘const chplx::Range<T, BoundedType, Stridable>’
+  149 |       chplx::forall(
+      |       ~~~~~~~~~~~~~^
+  150 |           hpx::execution::par.with(std::ref(acc)), chplx::Range{1, NX - 1},
+      |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  151 |           [&](auto i) {
+      |           ~~~~~~~~~~~~~
+  152 |             int y = i;
+      |             ~~~~~~~~~~
+  153 |             int x = i;
+      |             ~~~~~~~~~~
+  154 |             auto abc_res =
+      |             ~~~~~~~~~~~~~~
+  155 |                 std::pow(std::sin(std::tan(std::pow(x, 3)) *
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  156 |                                   std::cos(std::pow(y, 3))),
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~
+  157 |                          5) +
+      |                          ~~~~
+  158 |                 std::pow(std::cos(std::tan(std::pow(y, 3)) *
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  159 |                                   std::sin(std::pow(x, 3))),
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~
+  160 |                          5) +
+      |                          ~~~~
+  161 |                 std::exp(std::sqrt(
+      |                 ~~~~~~~~~~~~~~~~~~~
+  162 |                     std::pow(std::sin(std::cos(x)) * std::cos(std::sin(y)), 6) +
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  163 |                     std::pow(std::tan(std::exp(x * y)), 6))) +
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  164 |                 std::log(std::abs(std::sin(std::exp(std::pow(x, 2))) *
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  165 |                                       std::cos(std::exp(std::pow(y, 2))) +
+      |                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  166 |                                   1e-9)) +
+      |                                   ~~~~~~~~
+  167 |                 std::atan(std::pow(std::sin(std::exp(x + y)), 4)) *
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  168 |                     std::acosh(std::pow(std::cos(std::exp(x * y)), 4)) +
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  169 |                 std::pow(
+      |                 ~~~~~~~~~
+  170 |                     std::hypot(std::log(std::abs(x)), std::log(std::abs(y))),
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  171 |                     4) *
+      |                     ~~~~
+  172 |                     std::exp(std::log1p(std::pow(std::tan(x * y), 2)));
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  173 | 
+      |                     
+  174 |             (void)abc_res;
+      |             ~~~~~~~~~~~~~~
+  175 |           });
+      |           ~~        
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/forall_loop.hpp:93:6: note: candidate: ‘template<class T, class F, class ... Args> void chplx::forall(const Range<T, chplx::BoundedRangeType::bounded, false>&, F&&, Args&& ...)’
+   93 | void forall(Range<T, BoundedRangeType::bounded, false> const &r, F &&f,
+      |      ^~~~~~
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/forall_loop.hpp:93:6: note:   template argument deduction/substitution failed:
+/work/karame.mp/hpx_June/hpx_buran/performance/adjacent_difference.cpp:149:20: note:   ‘hpx::execution::detail::parallel_policy_shim<hpx::execution::parallel_policy_executor<hpx::launch>, std::reference_wrapper<hpx::execution::experimental::adaptive_core_chunk_size> >’ is not derived from ‘const chplx::Range<T, chplx::BoundedRangeType::bounded, false>’
+  149 |       chplx::forall(
+      |       ~~~~~~~~~~~~~^
+  150 |           hpx::execution::par.with(std::ref(acc)), chplx::Range{1, NX - 1},
+      |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  151 |           [&](auto i) {
+      |           ~~~~~~~~~~~~~
+  152 |             int y = i;
+      |             ~~~~~~~~~~
+  153 |             int x = i;
+      |             ~~~~~~~~~~
+  154 |             auto abc_res =
+      |             ~~~~~~~~~~~~~~
+  155 |                 std::pow(std::sin(std::tan(std::pow(x, 3)) *
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  156 |                                   std::cos(std::pow(y, 3))),
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~
+  157 |                          5) +
+      |                          ~~~~
+  158 |                 std::pow(std::cos(std::tan(std::pow(y, 3)) *
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  159 |                                   std::sin(std::pow(x, 3))),
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~
+  160 |                          5) +
+      |                          ~~~~
+  161 |                 std::exp(std::sqrt(
+      |                 ~~~~~~~~~~~~~~~~~~~
+  162 |                     std::pow(std::sin(std::cos(x)) * std::cos(std::sin(y)), 6) +
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  163 |                     std::pow(std::tan(std::exp(x * y)), 6))) +
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  164 |                 std::log(std::abs(std::sin(std::exp(std::pow(x, 2))) *
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  165 |                                       std::cos(std::exp(std::pow(y, 2))) +
+      |                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  166 |                                   1e-9)) +
+      |                                   ~~~~~~~~
+  167 |                 std::atan(std::pow(std::sin(std::exp(x + y)), 4)) *
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  168 |                     std::acosh(std::pow(std::cos(std::exp(x * y)), 4)) +
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  169 |                 std::pow(
+      |                 ~~~~~~~~~
+  170 |                     std::hypot(std::log(std::abs(x)), std::log(std::abs(y))),
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  171 |                     4) *
+      |                     ~~~~
+  172 |                     std::exp(std::log1p(std::pow(std::tan(x * y), 2)));
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  173 | 
+      |                     
+  174 |             (void)abc_res;
+      |             ~~~~~~~~~~~~~~
+  175 |           });
+      |           ~~        
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/forall_loop.hpp:108:6: note: candidate: ‘template<int N, class T, bool Stridable, class F, class ... Args> void chplx::forall(const Domain<N, T, Stridable>&, F&&, Args&& ...)’
+  108 | void forall(Domain<N, T, Stridable> const &d, F &&f, Args &&...args) {
+      |      ^~~~~~
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/forall_loop.hpp:108:6: note:   template argument deduction/substitution failed:
+/work/karame.mp/hpx_June/hpx_buran/performance/adjacent_difference.cpp:149:20: note:   ‘hpx::execution::detail::parallel_policy_shim<hpx::execution::parallel_policy_executor<hpx::launch>, std::reference_wrapper<hpx::execution::experimental::adaptive_core_chunk_size> >’ is not derived from ‘const chplx::Domain<N, T, Stridable>’
+  149 |       chplx::forall(
+      |       ~~~~~~~~~~~~~^
+  150 |           hpx::execution::par.with(std::ref(acc)), chplx::Range{1, NX - 1},
+      |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  151 |           [&](auto i) {
+      |           ~~~~~~~~~~~~~
+  152 |             int y = i;
+      |             ~~~~~~~~~~
+  153 |             int x = i;
+      |             ~~~~~~~~~~
+  154 |             auto abc_res =
+      |             ~~~~~~~~~~~~~~
+  155 |                 std::pow(std::sin(std::tan(std::pow(x, 3)) *
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  156 |                                   std::cos(std::pow(y, 3))),
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~
+  157 |                          5) +
+      |                          ~~~~
+  158 |                 std::pow(std::cos(std::tan(std::pow(y, 3)) *
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  159 |                                   std::sin(std::pow(x, 3))),
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~
+  160 |                          5) +
+      |                          ~~~~
+  161 |                 std::exp(std::sqrt(
+      |                 ~~~~~~~~~~~~~~~~~~~
+  162 |                     std::pow(std::sin(std::cos(x)) * std::cos(std::sin(y)), 6) +
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  163 |                     std::pow(std::tan(std::exp(x * y)), 6))) +
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  164 |                 std::log(std::abs(std::sin(std::exp(std::pow(x, 2))) *
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  165 |                                       std::cos(std::exp(std::pow(y, 2))) +
+      |                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  166 |                                   1e-9)) +
+      |                                   ~~~~~~~~
+  167 |                 std::atan(std::pow(std::sin(std::exp(x + y)), 4)) *
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  168 |                     std::acosh(std::pow(std::cos(std::exp(x * y)), 4)) +
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  169 |                 std::pow(
+      |                 ~~~~~~~~~
+  170 |                     std::hypot(std::log(std::abs(x)), std::log(std::abs(y))),
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  171 |                     4) *
+      |                     ~~~~
+  172 |                     std::exp(std::log1p(std::pow(std::tan(x * y), 2)));
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  173 | 
+      |                     
+  174 |             (void)abc_res;
+      |             ~~~~~~~~~~~~~~
+  175 |           });
+      |           ~~        
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/forall_loop.hpp:120:6: note: candidate: ‘template<class Idx, class F, class ... Args> void chplx::forall(const Domain<1, Idx>&, F&&, Args&& ...)’
+  120 | void forall(Domain<1, Idx, false> const &d, F &&f, Args &&...args) {
+      |      ^~~~~~
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/forall_loop.hpp:120:6: note:   template argument deduction/substitution failed:
+/work/karame.mp/hpx_June/hpx_buran/performance/adjacent_difference.cpp:149:20: note:   ‘hpx::execution::detail::parallel_policy_shim<hpx::execution::parallel_policy_executor<hpx::launch>, std::reference_wrapper<hpx::execution::experimental::adaptive_core_chunk_size> >’ is not derived from ‘const chplx::Domain<1, Idx>’
+  149 |       chplx::forall(
+      |       ~~~~~~~~~~~~~^
+  150 |           hpx::execution::par.with(std::ref(acc)), chplx::Range{1, NX - 1},
+      |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  151 |           [&](auto i) {
+      |           ~~~~~~~~~~~~~
+  152 |             int y = i;
+      |             ~~~~~~~~~~
+  153 |             int x = i;
+      |             ~~~~~~~~~~
+  154 |             auto abc_res =
+      |             ~~~~~~~~~~~~~~
+  155 |                 std::pow(std::sin(std::tan(std::pow(x, 3)) *
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  156 |                                   std::cos(std::pow(y, 3))),
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~
+  157 |                          5) +
+      |                          ~~~~
+  158 |                 std::pow(std::cos(std::tan(std::pow(y, 3)) *
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  159 |                                   std::sin(std::pow(x, 3))),
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~
+  160 |                          5) +
+      |                          ~~~~
+  161 |                 std::exp(std::sqrt(
+      |                 ~~~~~~~~~~~~~~~~~~~
+  162 |                     std::pow(std::sin(std::cos(x)) * std::cos(std::sin(y)), 6) +
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  163 |                     std::pow(std::tan(std::exp(x * y)), 6))) +
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  164 |                 std::log(std::abs(std::sin(std::exp(std::pow(x, 2))) *
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  165 |                                       std::cos(std::exp(std::pow(y, 2))) +
+      |                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  166 |                                   1e-9)) +
+      |                                   ~~~~~~~~
+  167 |                 std::atan(std::pow(std::sin(std::exp(x + y)), 4)) *
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  168 |                     std::acosh(std::pow(std::cos(std::exp(x * y)), 4)) +
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  169 |                 std::pow(
+      |                 ~~~~~~~~~
+  170 |                     std::hypot(std::log(std::abs(x)), std::log(std::abs(y))),
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  171 |                     4) *
+      |                     ~~~~
+  172 |                     std::exp(std::log1p(std::pow(std::tan(x * y), 2)));
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  173 | 
+      |                     
+  174 |             (void)abc_res;
+      |             ~~~~~~~~~~~~~~
+  175 |           });
+      |           ~~        
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/forall_loop.hpp:134:6: note: candidate: ‘template<class T, class F, class ... Args> void chplx::forall(const AssocDomain<T>&, F&&, Args&& ...)’
+  134 | void forall(AssocDomain<T> const &d, F &&f, Args &&...args) {
+      |      ^~~~~~
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/forall_loop.hpp:134:6: note:   template argument deduction/substitution failed:
+/work/karame.mp/hpx_June/hpx_buran/performance/adjacent_difference.cpp:149:20: note:   ‘hpx::execution::detail::parallel_policy_shim<hpx::execution::parallel_policy_executor<hpx::launch>, std::reference_wrapper<hpx::execution::experimental::adaptive_core_chunk_size> >’ is not derived from ‘const chplx::AssocDomain<T>’
+  149 |       chplx::forall(
+      |       ~~~~~~~~~~~~~^
+  150 |           hpx::execution::par.with(std::ref(acc)), chplx::Range{1, NX - 1},
+      |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  151 |           [&](auto i) {
+      |           ~~~~~~~~~~~~~
+  152 |             int y = i;
+      |             ~~~~~~~~~~
+  153 |             int x = i;
+      |             ~~~~~~~~~~
+  154 |             auto abc_res =
+      |             ~~~~~~~~~~~~~~
+  155 |                 std::pow(std::sin(std::tan(std::pow(x, 3)) *
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  156 |                                   std::cos(std::pow(y, 3))),
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~
+  157 |                          5) +
+      |                          ~~~~
+  158 |                 std::pow(std::cos(std::tan(std::pow(y, 3)) *
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  159 |                                   std::sin(std::pow(x, 3))),
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~
+  160 |                          5) +
+      |                          ~~~~
+  161 |                 std::exp(std::sqrt(
+      |                 ~~~~~~~~~~~~~~~~~~~
+  162 |                     std::pow(std::sin(std::cos(x)) * std::cos(std::sin(y)), 6) +
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  163 |                     std::pow(std::tan(std::exp(x * y)), 6))) +
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  164 |                 std::log(std::abs(std::sin(std::exp(std::pow(x, 2))) *
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  165 |                                       std::cos(std::exp(std::pow(y, 2))) +
+      |                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  166 |                                   1e-9)) +
+      |                                   ~~~~~~~~
+  167 |                 std::atan(std::pow(std::sin(std::exp(x + y)), 4)) *
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  168 |                     std::acosh(std::pow(std::cos(std::exp(x * y)), 4)) +
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  169 |                 std::pow(
+      |                 ~~~~~~~~~
+  170 |                     std::hypot(std::log(std::abs(x)), std::log(std::abs(y))),
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  171 |                     4) *
+      |                     ~~~~
+  172 |                     std::exp(std::log1p(std::pow(std::tan(x * y), 2)));
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  173 | 
+      |                     
+  174 |             (void)abc_res;
+      |             ~~~~~~~~~~~~~~
+  175 |           });
+      |           ~~        
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/forall_loop.hpp:148:6: note: candidate: ‘template<class ... Rs, class F, class ... Args> void chplx::forall(const detail::ZipRange<Rs ...>&, F&&, Args&& ...)’
+  148 | void forall(detail::ZipRange<Rs...> const &zr, F &&f, Args &&...args) {
+      |      ^~~~~~
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/forall_loop.hpp:148:6: note:   template argument deduction/substitution failed:
+/work/karame.mp/hpx_June/hpx_buran/performance/adjacent_difference.cpp:149:20: note:   ‘hpx::execution::detail::parallel_policy_shim<hpx::execution::parallel_policy_executor<hpx::launch>, std::reference_wrapper<hpx::execution::experimental::adaptive_core_chunk_size> >’ is not derived from ‘const chplx::detail::ZipRange<Rs ...>’
+  149 |       chplx::forall(
+      |       ~~~~~~~~~~~~~^
+  150 |           hpx::execution::par.with(std::ref(acc)), chplx::Range{1, NX - 1},
+      |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  151 |           [&](auto i) {
+      |           ~~~~~~~~~~~~~
+  152 |             int y = i;
+      |             ~~~~~~~~~~
+  153 |             int x = i;
+      |             ~~~~~~~~~~
+  154 |             auto abc_res =
+      |             ~~~~~~~~~~~~~~
+  155 |                 std::pow(std::sin(std::tan(std::pow(x, 3)) *
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  156 |                                   std::cos(std::pow(y, 3))),
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~
+  157 |                          5) +
+      |                          ~~~~
+  158 |                 std::pow(std::cos(std::tan(std::pow(y, 3)) *
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  159 |                                   std::sin(std::pow(x, 3))),
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~
+  160 |                          5) +
+      |                          ~~~~
+  161 |                 std::exp(std::sqrt(
+      |                 ~~~~~~~~~~~~~~~~~~~
+  162 |                     std::pow(std::sin(std::cos(x)) * std::cos(std::sin(y)), 6) +
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  163 |                     std::pow(std::tan(std::exp(x * y)), 6))) +
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  164 |                 std::log(std::abs(std::sin(std::exp(std::pow(x, 2))) *
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  165 |                                       std::cos(std::exp(std::pow(y, 2))) +
+      |                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  166 |                                   1e-9)) +
+      |                                   ~~~~~~~~
+  167 |                 std::atan(std::pow(std::sin(std::exp(x + y)), 4)) *
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  168 |                     std::acosh(std::pow(std::cos(std::exp(x * y)), 4)) +
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  169 |                 std::pow(
+      |                 ~~~~~~~~~
+  170 |                     std::hypot(std::log(std::abs(x)), std::log(std::abs(y))),
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  171 |                     4) *
+      |                     ~~~~
+  172 |                     std::exp(std::log1p(std::pow(std::tan(x * y), 2)));
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  173 | 
+      |                     
+  174 |             (void)abc_res;
+      |             ~~~~~~~~~~~~~~
+  175 |           });
+      |           ~~        
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/forall_loop.hpp:162:6: note: candidate: ‘template<class T, class Domain, class F, class ... Args> void chplx::forall(const Array<T, Domain>&, F&&, Args&& ...)’
+  162 | void forall(Array<T, Domain> const &a, F &&f, Args &&...args) {
+      |      ^~~~~~
+/work/karame.mp/hpx_June/hpx_buran/performance/chplx_library/include/chplx/forall_loop.hpp:162:6: note:   template argument deduction/substitution failed:
+make[2]: *** [CMakeFiles/hpx_adjacent_difference.dir/build.make:76: CMakeFiles/hpx_adjacent_difference.dir/adjacent_difference.cpp.o] Interrupt
+make[1]: *** [CMakeFiles/Makefile2:83: CMakeFiles/hpx_adjacent_difference.dir/all] Interrupt
+make: *** [Makefile:91: all] Interrupt

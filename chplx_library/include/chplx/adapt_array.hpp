@@ -1,0 +1,58 @@
+//  Copyright (c) 2023-2025 Hartmut Kaiser
+//
+//  SPDX-License-Identifier: BSL-1.0
+//  Distributed under the Boost Software License, Version 1.0. (See accompanying
+//  file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+
+#pragma once
+
+#include "adapt_range.hpp"
+#include "array.hpp"
+#include "types.hpp"
+
+#include "generator.hpp"
+#include <hpx/config.hpp>
+
+#include <hpx/iterator_support/iterator_range.hpp>
+
+#include <iterator>
+
+namespace chplx {
+
+//-----------------------------------------------------------------------------
+// 1D iteration support
+template <typename T, typename Domain>
+hpx::generator<T &, T>
+iterate(detail::IteratorGenerator<Array<T, Domain>> a) noexcept {
+
+  auto size = a.size;
+  for (auto ilo = a.first; size-- != 0; ++ilo) {
+    co_yield a.target[ilo];
+  }
+}
+
+//-----------------------------------------------------------------------------
+template <typename T, typename Domain>
+decltype(auto) iterate(Array<T, Domain> const &a) noexcept {
+
+  return iterate(detail::IteratorGenerator(a));
+}
+
+template <typename T, typename Domain>
+decltype(auto) iterate(Array<T, Domain> &&a) noexcept {
+
+  return iterate(detail::IteratorGenerator(std::move(a)));
+}
+
+template <typename T>
+decltype(auto) iterate(Array<T, Domain<1>> const &a) noexcept {
+
+  return hpx::util::iterator_range(a.begin(), a.end());
+}
+
+template <typename T> decltype(auto) iterate(Array<T, Domain<1>> &&a) noexcept {
+
+  return hpx::util::iterator_range(a.begin(), a.end());
+}
+
+} // namespace chplx
