@@ -74,7 +74,7 @@ void measureAdjacent_differenceAlgorithms() {
 
   std::vector<std::array<double, 4>> data;
   std::ofstream fout(
-      "/work/karame.mp/hpx_June/hpx_buran/performance/result_forall.csv",
+      "/work/karame.mp/risc5/benchmarks/benchmark_chaplx/result_heat.csv",
       std::ios_base::app);
   fout << "s,seq,par,speedUp\n";
   for (size_t s = start; s <= till; s *= 2) {
@@ -157,7 +157,7 @@ void measureAdjacent_differenceAlgorithms() {
       ///////////////////////////////////////////////////////////////////////
       /// CHPLX
       // constexpr int NX = 100000;
-      heat_chplx(hpx::execution::par.with(std::ref(acc)), s);
+      // heat_chplx(hpx::execution::par.with(std::ref(acc)), s);
       heat_chplx(hpx::execution::par.with(nc, scs), s);
       // chplx::forall(
       //     hpx::execution::par.with(std::ref(acc)), chplx::Range{0, s - 1},
