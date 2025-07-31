@@ -6,16 +6,16 @@
 
 #pragma once
 
-#include "adapt_array.hpp"
-#include "detail/iterator_generator.hpp"
-#include "domain.hpp"
-#include "locale.hpp"
-#include "range.hpp"
-#include "tuple.hpp"
-#include "types.hpp"
-#include "zip.hpp"
+#include <chplx/adapt_array.hpp>
+#include <chplx/detail/iterator_generator.hpp>
+#include <chplx/domain.hpp>
+#include <chplx/locale.hpp>
+#include <chplx/range.hpp>
+#include <chplx/tuple.hpp>
+#include <chplx/types.hpp>
+#include <chplx/zip.hpp>
 
-#include "domains/default_rectangular.hpp"
+#include <chplx/domains/default_rectangular.hpp>
 
 #include <hpx/iterator_support/iterator_range.hpp>
 
@@ -305,14 +305,14 @@ public:
 
   // Rank == 1
   explicit Array(std::vector<T> &&data)
-      : bounds(rangeType(0, data.size())), array(std::move(data)) {}
+      : bounds(rangeType(0, data.size() - 1)), array(std::move(data)) {}
   Array(std::initializer_list<T> &&data)
-      : bounds(rangeType(0, data.size())), array(std::move(data)) {}
+      : bounds(rangeType(0, data.size() - 1)), array(std::move(data)) {}
 
   Array(domain, std::vector<T> &&data)
-      : bounds(rangeType(0, data.size())), array(std::move(data)) {}
+      : bounds(rangeType(0, data.size() - 1)), array(std::move(data)) {}
   Array(domain, std::initializer_list<T> &&data)
-      : bounds(rangeType(0, data.size())), array(std::move(data)) {}
+      : bounds(rangeType(0, data.size() - 1)), array(std::move(data)) {}
 
   Array(Array const &rhs) = default;
   Array &operator=(Array const &rhs) = default;
@@ -367,7 +367,7 @@ public:
 
   // Return the number of indices in this array as an int.
   [[nodiscard]] constexpr std::int64_t size() const noexcept {
-    return bounds.size();
+    return array.size();
   }
 
   // Returns true if the embedded domain is fully bounded, false otherwise.

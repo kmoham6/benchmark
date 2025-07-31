@@ -6,10 +6,10 @@
 
 #pragma once
 
-#include "tuple.hpp"
-#include "types.hpp"
+#include <chplx/tuple.hpp>
+#include <chplx/types.hpp>
 
-#include "generator.hpp"
+#include <hpx/generator.hpp>
 #include <hpx/modules/datastructures.hpp>
 #include <hpx/modules/iterator_support.hpp>
 #include <hpx/modules/type_support.hpp>

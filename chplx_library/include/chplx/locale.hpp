@@ -6,8 +6,8 @@
 
 #pragma once
 
-#include "string.hpp"
-#include "types.hpp"
+#include <chplx/string.hpp>
+#include <chplx/types.hpp>
 
 #include <hpx/modules/actions.hpp>
 #include <hpx/modules/async_combinators.hpp>
@@ -64,10 +64,10 @@ struct locale {
 
   // Get the number of processing units available on this locale.
   //
-  // logical : bool ï¿½ Count logical PUs (hyperthreads and the like), or
+  // logical : bool – Count logical PUs (hyperthreads and the like), or
   // physical ones (cores)? Defaults to false, for cores.
   //
-  // accessible : bool ï¿½ Count only PUs that can be reached, or all of them?
+  // accessible : bool – Count only PUs that can be reached, or all of them?
   // Defaults to true, for accessible PUs.
   std::int64_t numPUs(bool logical = false, bool accessible = true) const;
 

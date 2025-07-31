@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "types.hpp"
+#include <chplx/types.hpp>
 
 #include <hpx/config.hpp>
 #include <hpx/execution.hpp>

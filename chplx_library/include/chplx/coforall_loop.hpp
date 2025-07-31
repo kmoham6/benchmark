@@ -6,16 +6,16 @@
 
 #pragma once
 
-#include "adapt_domain.hpp"
-#include "adapt_range.hpp"
-#include "adapt_tuple.hpp"
-#include "assoc_domain.hpp"
-#include "detail/iterator_generator.hpp"
-#include "domain.hpp"
-#include "range.hpp"
-#include "tuple.hpp"
-#include "types.hpp"
-#include "zip.hpp"
+#include <chplx/adapt_domain.hpp>
+#include <chplx/adapt_range.hpp>
+#include <chplx/adapt_tuple.hpp>
+#include <chplx/assoc_domain.hpp>
+#include <chplx/detail/iterator_generator.hpp>
+#include <chplx/domain.hpp>
+#include <chplx/range.hpp>
+#include <chplx/tuple.hpp>
+#include <chplx/types.hpp>
+#include <chplx/zip.hpp>
 
 #include <hpx/algorithm.hpp>
 #include <hpx/execution.hpp>
@@ -25,6 +25,7 @@
 #include <type_traits>
 #include <utility>
 
+#define HPX_VERSION_FULL_old HPX_VERSION_FULL
 #define HPX_VERSION_FULL 0
 
 namespace chplx {
@@ -35,15 +36,15 @@ namespace detail {
 template <typename Tuple, typename F, typename... Args>
 void coforall(Tuple &t, F &&f, Args &&...args) {
 
-#if HPX_VERSION_FULL >= 0x011100
-  auto policy = hpx::execution::experimental::adapt_sharing_mode(
-      hpx::execution::par,
-      hpx::threads::thread_sharing_hint::do_not_combine_tasks);
-#else
+  // #if HPX_VERSION_FULL >= 0x011100
+  //   auto policy = hpx::execution::experimental::adapt_sharing_mode(
+  //       hpx::execution::par,
+  //       hpx::threads::thread_sharing_hint::do_not_combine_tasks);
+  // #else
   auto policy = hpx::parallel::util::adapt_sharing_mode(
       hpx::execution::par,
       hpx::threads::thread_sharing_hint::do_not_combine_tasks);
-#endif
+  // #endif
 
   using base_tuple = typename Tuple::base_type;
   if constexpr (std::tuple_size_v<base_tuple> != 0) {
@@ -216,3 +217,5 @@ void coforall(Array<T, Domain> const &a, F &&f, Args &&...args) {
 }
 
 } // namespace chplx
+
+#define HPX_VERSION_FULL HPX_VERSION_FULL_old

@@ -6,17 +6,17 @@
 
 #pragma once
 
-#include "adapt_domain.hpp"
-#include "detail/iterator_generator.hpp"
-#include "dmap.hpp"
-#include "domains/default_rectangular.hpp"
-#include "range.hpp"
-#include "tuple.hpp"
-#include "types.hpp"
+#include <chplx/adapt_domain.hpp>
+#include <chplx/detail/iterator_generator.hpp>
+#include <chplx/dmap.hpp>
+#include <chplx/domains/default_rectangular.hpp>
+#include <chplx/range.hpp>
+#include <chplx/tuple.hpp>
+#include <chplx/types.hpp>
 
-#include "generator.hpp"
 #include <hpx/assert.hpp>
 #include <hpx/config.hpp>
+#include <hpx/generator.hpp>
 #include <hpx/modules/memory.hpp>
 
 #include <cstddef>
@@ -322,7 +322,7 @@ auto by(Domain<N, T, Stridable> const &rhs, Tuple<Ts...> const &steps) {
 // The align operator can be applied to a rectangular domain value in order to
 // change the alignment of a rectangular domain value. The right-hand operand to
 // the align operator can either be an integral value or an integral tuple whose
-// size matches the domainï¿½s rank.
+// size matches the domain’s rank.
 //
 // The type of the resulting domain is the same as the original domain but with
 // stridable set to true. In the case of an integer alignment value, the value

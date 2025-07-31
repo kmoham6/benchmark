@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "nothing.hpp"
+#include <chplx/nothing.hpp>
 
 #include <hpx/modules/type_support.hpp>
 

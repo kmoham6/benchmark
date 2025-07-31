@@ -6,8 +6,7 @@
 
 #pragma once
 
-#include "../generator.hpp"
-#include "../types.hpp"
+#include <chplx/types.hpp>
 
 #include <cstddef>
 #include <type_traits>

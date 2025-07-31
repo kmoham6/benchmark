@@ -6,12 +6,12 @@
 
 #pragma once
 
-#include "../dmap.hpp"
-#include "../locale.hpp"
-#include "../tuple.hpp"
-#include "../types.hpp"
+#include <chplx/dmap.hpp>
+#include <chplx/locale.hpp>
+#include <chplx/tuple.hpp>
+#include <chplx/types.hpp>
 
-#include "base_rectangular.hpp"
+#include <chplx/domains/base_rectangular.hpp>
 
 #include <cstddef>
 #include <initializer_list>

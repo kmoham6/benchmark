@@ -6,9 +6,9 @@
 
 #pragma once
 
-#include "adapt_tuple.hpp"
-#include "range.hpp"
-#include "types.hpp"
+#include <chplx/adapt_tuple.hpp>
+#include <chplx/range.hpp>
+#include <chplx/types.hpp>
 
 #include <hpx/assert.hpp>
 #include <hpx/config.hpp>

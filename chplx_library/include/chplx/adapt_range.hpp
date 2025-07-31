@@ -6,12 +6,13 @@
 
 #pragma once
 
-#include "detail/iterator_generator.hpp"
-#include "generator.hpp"
-#include "types.hpp"
+#include <chplx/detail/iterator_generator.hpp>
+#include <chplx/generator.hpp>
+#include <chplx/types.hpp>
 
 #include <hpx/assert.hpp>
 #include <hpx/config.hpp>
+#include <hpx/generator.hpp>
 
 #include <hpx/iterator_support/counting_shape.hpp>
 
@@ -45,7 +46,9 @@ template <typename T>
 decltype(auto)
 iterate(Range<T, BoundedRangeType::bounded, false> const &r) noexcept {
 
-  return hpx::util::counting_shape(r.low(), r.high());
+  if (r.low() <= r.high())
+    return hpx::util::counting_shape(r.low(), r.high() + 1);
+  return hpx::util::counting_shape(r.low(), r.low());
 }
 
 } // namespace chplx

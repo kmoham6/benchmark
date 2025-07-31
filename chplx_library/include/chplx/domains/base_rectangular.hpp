@@ -6,9 +6,9 @@
 
 #pragma once
 
-#include "../dmap.hpp"
-#include "../tuple.hpp"
-#include "../types.hpp"
+#include <chplx/dmap.hpp>
+#include <chplx/tuple.hpp>
+#include <chplx/types.hpp>
 
 #include <hpx/assert.hpp>
 #include <hpx/modules/memory.hpp>

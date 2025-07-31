@@ -6,13 +6,13 @@
 
 #pragma once
 
-#include "adapt_range.hpp"
-#include "range.hpp"
-#include "tuple.hpp"
-#include "types.hpp"
+#include <chplx/adapt_range.hpp>
+#include <chplx/range.hpp>
+#include <chplx/tuple.hpp>
+#include <chplx/types.hpp>
 
-#include "generator.hpp"
 #include <hpx/config.hpp>
+#include <hpx/generator.hpp>
 
 #include <hpx/iterator_support/counting_shape.hpp>
 
@@ -57,7 +57,11 @@ decltype(auto) iterate(Domain<N, T, Stridable> const &d) noexcept {
 template <typename Idx>
 decltype(auto) iterate(Domain<1, Idx> const &d) noexcept {
 
-  return hpx::util::counting_shape(std::get<0>(d.low()), std::get<0>(d.high()));
+  auto low = std::get<0>(d.low());
+  auto high = std::get<0>(d.high());
+  if (low <= high)
+    return hpx::util::counting_shape(low, high + 1);
+  return hpx::util::counting_shape(low, low);
 }
 
 //-----------------------------------------------------------------------------

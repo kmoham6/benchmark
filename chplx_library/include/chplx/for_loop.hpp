@@ -6,14 +6,14 @@
 
 #pragma once
 
-#include "adapt_domain.hpp"
-#include "adapt_range.hpp"
-#include "adapt_tuple.hpp"
-#include "assoc_domain.hpp"
-#include "domain.hpp"
-#include "range.hpp"
-#include "tuple.hpp"
-#include "zip.hpp"
+#include <chplx/adapt_domain.hpp>
+#include <chplx/adapt_range.hpp>
+#include <chplx/adapt_tuple.hpp>
+#include <chplx/assoc_domain.hpp>
+#include <chplx/domain.hpp>
+#include <chplx/range.hpp>
+#include <chplx/tuple.hpp>
+#include <chplx/zip.hpp>
 
 #include <cstddef>
 

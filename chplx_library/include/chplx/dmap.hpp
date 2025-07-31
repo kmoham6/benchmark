@@ -10,9 +10,9 @@
 #include <hpx/modules/memory.hpp>
 #include <hpx/modules/thread_support.hpp>
 
-#include "locale.hpp"
-#include "range.hpp"
-#include "types.hpp"
+#include <chplx/locale.hpp>
+#include <chplx/range.hpp>
+#include <chplx/types.hpp>
 
 #include <cstddef>
 #include <memory>
@@ -203,7 +203,7 @@ public:
   // this with initial indices 'inds'.
   //
   // This method returns a new GlobalDomain instance that will correspond to
-  // that Chapel domain value, i.e., be that valueï¿½s runtime representation. The
+  // that Chapel domain value, i.e., be that value’s runtime representation. The
   // field 'dist' of the returned GlobalDomain must point to this.
   template <int Rank, typename IndexType, bool Stridable, typename Indices>
   BaseDomain *newRectangularDom(Indices &&inds) {

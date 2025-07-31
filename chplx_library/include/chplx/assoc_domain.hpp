@@ -6,10 +6,10 @@
 
 #pragma once
 
-#include "adapt_domain.hpp"
-#include "detail/iterator_generator.hpp"
-#include "domain.hpp"
-#include "types.hpp"
+#include <chplx/adapt_domain.hpp>
+#include <chplx/detail/iterator_generator.hpp>
+#include <chplx/domain.hpp>
+#include <chplx/types.hpp>
 
 #include <hpx/datastructures/detail/flat_set.hpp>
 

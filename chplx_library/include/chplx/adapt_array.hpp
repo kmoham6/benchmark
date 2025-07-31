@@ -6,12 +6,12 @@
 
 #pragma once
 
-#include "adapt_range.hpp"
-#include "array.hpp"
-#include "types.hpp"
+#include <chplx/adapt_range.hpp>
+#include <chplx/array.hpp>
+#include <chplx/types.hpp>
 
-#include "generator.hpp"
 #include <hpx/config.hpp>
+#include <hpx/generator.hpp>
 
 #include <hpx/iterator_support/iterator_range.hpp>
 
