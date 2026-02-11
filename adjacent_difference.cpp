@@ -106,7 +106,7 @@ void measureAdjacent_differenceAlgorithms() {
       //                          arr.end(), res1.begin());
 
       hpx::adjacent_difference(
-          hpx::execution::par.with(nc, scs), arr.begin(), arr.end(),
+          hpx::execution::par.with(std::ref(acc)), arr.begin(), arr.end(),
           res1.begin(), [](auto x, auto y) {
             return std::pow(std::sin(std::tan(std::pow(x, 3)) *
                                      std::cos(std::pow(y, 3))),
