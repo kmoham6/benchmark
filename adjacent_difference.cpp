@@ -1,0 +1,181 @@
+#include <algorithm>
+#include <array>
+#include <chrono>
+#include <cstddef>
+#include <fstream>
+#include <functional>
+#include <hpx/local/init.hpp>
+#include <hpx/modules/algorithms.hpp>
+#include <hpx/modules/program_options.hpp>
+#include <hpx/modules/testing.hpp>
+#include <hpx/parallel/algorithms/adjacent_difference.hpp>
+#include <iostream>
+#include <map>
+#include <numeric>
+#include <random>
+#include <string>
+#include <vector>
+
+// std::vector<std::string> generateStrings(std::size_t size, const std::string&
+// pattern) {
+//   std::vector<std::string> arr(size);
+//   for (std::size_t i = 0; i < size; ++i) {
+//     arr[i] = pattern + std::to_string(i + 1);
+//   }
+//   return arr;
+// }
+
+void measureAdjacent_differenceAlgorithms() {
+
+  // auto  chunk_size = 4;
+
+  std::size_t start = 128;
+  std::size_t till = 1 << 24;
+
+  const auto NUM_ITERATIONS = 10;
+
+  std::vector<std::array<double, 4>> data;
+  std::ofstream fout("/work/karame.mp/risc5/benchmarks/performance/result.csv",
+                     std::ios_base::app);
+  fout << "s,seq,par,speedUp\n";
+  for (size_t s = start; s <= till; s *= 2) {
+    // std::vector<std::string> arr = generateStrings (s, "string");
+    // std::iota(std::begin(arr), std::end(arr), 1, [](int value) {
+    //   return std::to_string (value);
+    std::vector<int> arr(s);
+    std::iota(std::begin(arr), std::end(arr), 1);
+    //  chunk_size *= 2;
+    hpx::execution::experimental::static_chunk_size scs;
+    hpx::execution::experimental::num_cores nc(2);
+    // hpx::execution::experimental::adaptive_core_chunk_size acc;
+    // hpx::execution::experimental::auto_chunk_size acs;
+
+    double seqTime = 0;
+    double parTime = 0;
+    double speedUp = 0;
+
+    for (int i = 0; i <= NUM_ITERATIONS + 5; i++) {
+      std::vector<int> res(s);
+      auto t1 = std::chrono::high_resolution_clock::now();
+      // hpx::adjacent_difference(
+      //     hpx::execution::seq, arr.begin(), arr.end(), res.begin())
+      //     [](auto x, auto y) { return std::sin(x) - std::cos(y); });
+
+      hpx::adjacent_difference(
+          hpx::execution::seq, arr.begin(), arr.end(), res.begin(),
+          [](auto x, auto y) {
+            return std::pow(std::sin(std::tan(std::pow(x, 3)) *
+                                     std::cos(std::pow(y, 3))),
+                            5) +
+                   std::pow(std::cos(std::tan(std::pow(y, 3)) *
+                                     std::sin(std::pow(x, 3))),
+                            5) +
+                   std::exp(std::sqrt(
+                       std::pow(std::sin(std::cos(x)) * std::cos(std::sin(y)),
+                                6) +
+                       std::pow(std::tan(std::exp(x * y)), 6))) +
+                   std::log(std::abs(std::sin(std::exp(std::pow(x, 2))) *
+                                         std::cos(std::exp(std::pow(y, 2))) +
+                                     1e-9)) +
+                   std::atan(std::pow(std::sin(std::exp(x + y)), 4)) *
+                       std::acosh(std::pow(std::cos(std::exp(x * y)), 4)) +
+                   std::pow(
+                       std::hypot(std::log(std::abs(x)), std::log(std::abs(y))),
+                       4) *
+                       std::exp(std::log1p(std::pow(std::tan(x * y), 2)));
+          });
+
+      auto end1 = std::chrono::high_resolution_clock::now();
+
+      if (i < 5) {
+        continue;
+      }
+      std::chrono::duration<double> time_span1 =
+          std::chrono::duration_cast<std::chrono::duration<double>>(end1 - t1);
+      seqTime += time_span1.count();
+    }
+    for (int i = 0; i <= NUM_ITERATIONS + 5; i++) {
+      std::vector<int> res1(s);
+      auto t2 = std::chrono::high_resolution_clock::now();
+      // hpx::adjacent_difference(hpx::execution::par.with(nc, scs),
+      // arr.begin(),
+      //                          arr.end(), res1.begin());
+      // hpx::adjacent_difference(hpx::execution::par.with(std::ref(acc)),
+      //                          arr.begin(), arr.end(), res1.begin());
+      // hpx::adjacent_difference(hpx::execution::par, arr.begin(),
+      //                          arr.end(), res1.begin());
+
+      hpx::adjacent_difference(
+          hpx::execution::par.with(nc, scs), arr.begin(), arr.end(),
+          res1.begin(), [](auto x, auto y) {
+            return std::pow(std::sin(std::tan(std::pow(x, 3)) *
+                                     std::cos(std::pow(y, 3))),
+                            5) +
+                   std::pow(std::cos(std::tan(std::pow(y, 3)) *
+                                     std::sin(std::pow(x, 3))),
+                            5) +
+                   std::exp(std::sqrt(
+                       std::pow(std::sin(std::cos(x)) * std::cos(std::sin(y)),
+                                6) +
+                       std::pow(std::tan(std::exp(x * y)), 6))) +
+                   std::log(std::abs(std::sin(std::exp(std::pow(x, 2))) *
+                                         std::cos(std::exp(std::pow(y, 2))) +
+                                     1e-9)) +
+                   std::atan(std::pow(std::sin(std::exp(x + y)), 4)) *
+                       std::acosh(std::pow(std::cos(std::exp(x * y)), 4)) +
+                   std::pow(
+                       std::hypot(std::log(std::abs(x)), std::log(std::abs(y))),
+                       4) *
+                       std::exp(std::log1p(std::pow(std::tan(x * y), 2)));
+          });
+
+      auto end2 = std::chrono::high_resolution_clock::now();
+
+      if (i < 5) {
+        continue;
+      }
+
+      std::chrono::duration<double> time_span2 =
+          std::chrono::duration_cast<std::chrono::duration<double>>(end2 - t2);
+
+      parTime += time_span2.count();
+    }
+
+    seqTime /= NUM_ITERATIONS;
+    parTime /= NUM_ITERATIONS;
+    speedUp = seqTime / parTime;
+
+    data.push_back(std::array<double, 4>{(double)s, seqTime, parTime, speedUp});
+    std::cout << "n : " << s << '\n';
+    std::cout << "seq: " << seqTime << '\n';
+    std::cout << "par: " << parTime << '\n';
+    std::cout << "spddd: " << speedUp << "\n\n";
+    fout << s << "," << seqTime << "," << parTime << "," << speedUp << "\n";
+
+    for (auto &d : data) {
+
+      std::cout << d[0] << "," << d[1] << "," << d[2] << "," << d[3] << ","
+                << ",\n";
+    }
+  }
+  fout.close();
+
+  //   }
+}
+int hpx_main(hpx::program_options::variables_map &) {
+  measureAdjacent_differenceAlgorithms();
+
+  return hpx::local::finalize();
+}
+int main(int argc, char *argv[]) {
+  std::vector<std::string> cfg;
+  cfg.push_back("hpx.os_threads=all");
+  hpx::local::init_params init_args;
+  init_args.cfg = cfg;
+
+  // Initialize and run HPX.
+  HPX_TEST_EQ_MSG(hpx::local::init(hpx_main, argc, argv, init_args), 0,
+                  "HPX main exited with non-zero status");
+
+  return hpx::util::report_errors();
+}
